@@ -14,7 +14,7 @@ Once the data rate reaches 2 Mbps, the channel will be saturated and it will be 
 We can assume that the goodput slows down after reaching a certain value of data rate since there are more and more collisions. The channel reached a maximum goodput value for data rate of 2 Mbps.
 
 
-### load 2
+### Load 2
 
 ![Load_2](img/load_2.png "load_2.png")
 
@@ -37,10 +37,12 @@ Node_0 only receives packet from Node_1 (acknowledgment). It sends data packet (
 
 We can observe collisions on the PCAP trace of node_0 since we see some packets that are not acknowledge by node_1 and therefore resent with the same sequence number.
 
-#### e) throughput from node_0 to node_1: 0.233557 Mbps
-   throughput from node_2 to node_1: 0.338912 Mbps
+#### e) Throughputs
 
-   those throughput (message received / message sent) are very low. It correspond approximately 4 tries to send one message.
+   Throughput from node_0 to node_1: 0.233557 Mbps
+   Throughput from node_2 to node_1: 0.338912 Mbps
+
+   Those throughput (message received / message sent) are very low. It corresponds to approximately 4 tries to send one message.
 
 ### RTS/CTS handshake enabled above 150 bytes
 
@@ -58,7 +60,8 @@ The same handshake process is visible. Some request to sent messages are visible
 we can observe the presence of a hidden node on the PCAP file of node_0 when a packet clear-to-send is received from node_0 but addressed to node_2. When receiving this packet, node_0 understands node_1 is communicating with another node which is node_2.
 
 
-#### e)
+#### e) throughputs
+
   throughput from node_0 to node_1: 0.729867 Mbps
   throughput from node_2 to node_1: 0.599125 Mbps
 
@@ -76,25 +79,25 @@ Thanks to the RTS/CTS handshake, nodes verify that it is ok to send multiple pac
 
 ### packet size of 2000 and bit rate of 0.5 Mbps
 
-b) The goodput is stable for a distance between 80 and 120. When Node_2 is further then 120 from node_0, the goodput starts dropping and when Node_2 reaches a distance of 160, the goodput is null.
+#### b) analyse of diagram
 
-c)
-|   position     | number of packet lost     |
-| -------------- | ------------------------- |
-|    80          |                       1   |
-|    100         |                       1   |
-|    120         |                     141   |
-|    140         |                      281  |
-|    160         |                       281 |
-|    180         |                        281|
+ The goodput is stable for a distance between 80 and 120. When Node_2 is further then 120 from node_0, the goodput starts dropping and when Node_2 reaches a distance of 160, the goodput is null.
 
-
+#### c) number of packet lost depending on position
 
 position | number of packet lost
 - |:-: | -:
 80 | **1**
 100 | **1**
-120 | **141** 
+120 | **141**
 140 | **281**
 160 | **281**
 180 | **281**
+
+
+#### d) maximum of packet loses
+
+The distance for which there is a maximum of packet loses without being out of range is 140.
+
+
+### packet size of 150 and bit rate of 0.05 Mbps
