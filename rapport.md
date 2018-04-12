@@ -27,7 +27,7 @@
 
 #### b) From Node_1 point of view:
 
-  Node_0 transmits data (UDP) blindly to node_1, thinking the way is cleared since it doesn't detect the transmission of node_2. The same thing applies to node_2. Therefore, node_1 receives data from both sides. If the two nodes transmit exactly at the same time, the worse case, Node_1 can't decode any of them and the packets don't even appear on the PCAP file. The two nodes transmitting will try to transmit the same message again and again until it is acknowledge by Node_1 (on the PCAP file, node_1 sends an acknowledgment packet). We can only see the packets that are effectively received and decode by node_1 on the PCAP file.
+  Node_0 transmits data (UDP) blindly to node_1, thinking the way is cleared since it doesn't detect the transmission of node_2. The same thing applies to node_2. Therefore, node_1 receives data from both sides. If the two nodes transmit exactly at the same time, the worse case, Node_1 can't decode any of them and the packets don't even appear on the PCAP file. The two nodes transmitting will try to transmit the same message again and again until it is acknowledge by Node_1 (on the PCAP file, node_1 sends an acknowledgment packet). We can only see the packets that are effectively received and decoded by node_1 on the PCAP file.
 
 #### c) From Node_0 point of view:
 
@@ -38,11 +38,12 @@
   We can observe collisions on the PCAP trace of node_0 since we see some packets that are not acknowledge by node_1 and therefore resent with the same sequence number.
 
 #### e) Throughputs
+From | To | Throughput (Mbps)
+:-: | :-: |:-:
+ node_0 | node_1  | **0.233557**
+ node_2 | node_1  | **0.338912**
 
-  Throughput from node_0 to node_1: 0.233557 Mbps
-  Throughput from node_2 to node_1: 0.338912 Mbps
-
-  Those throughput (message received / message sent) are very low. It corresponds to approximately 4 tries to send one message.
+  Those throughput (message received / message sent) are very low. It is equivalent to approximately 4 tries to send one message.
 
 ### RTS/CTS handshake enabled above 150 bytes
 
@@ -53,7 +54,7 @@
 
 #### c)From node_0 point of view
 
-  The same handshake process is visible. Some request to sent messages are visible on this PCAP file and not visible from the node_1 point of view: this means that those messages weren't received by node_1. Also, we can see some clear-to-send messages addressed to node_2 visible on node_0 PCAP file. This means there is a handshake happening between node_1 and node_2 and node_0 is aware of it and won't transmit. Node_0 waits a certain amount of time before resending a request to send again to node_1. If node_1 is still talking to node_2, it will ignore the request. Node_0 sends regular request to send until it receives a clear-to-send message back from node_1.
+  The same handshake process is visible. Some 'request to send' messages are visible on this PCAP file and not visible from the node_1 point of view: this means that those messages weren't received by node_1. Also, we can see some clear-to-send messages addressed to node_2 visible on node_0 PCAP file. This means there is a handshake happening between node_1 and node_2 and node_0 is aware of it and won't transmit. Node_0 waits a certain amount of time before resending a request to send again to node_1. If node_1 is still talking to node_2, it will ignore the request. Node_0 sends regular request to send until it receives a clear-to-send message back from node_1.
 
 #### d) Detection of hidden node
 
@@ -61,9 +62,10 @@
 
 
 #### e) Throughputs
-
-  Throughput from node_0 to node_1: 0.729867 Mbps
-  Throughput from node_2 to node_1: 0.599125 Mbps
+From | To | Throughput (Mbps)
+:-: | :-: |:-:
+ node_0 | node_1  | **0.729867**
+ node_2 | node_1  | **0.599125**
 
   Those throughputs are about two times better than the ones we had without the RTS/CTS handshakes.
 
