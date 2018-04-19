@@ -87,10 +87,10 @@ Conclusion: the load of the network has a really negative impact on the PRR. Ind
 
 ![fading_models](fading_models.png "fading_models.png")
 
-![fading](fading.png "fading.png")
-
 
 ### 1. log-distance fading
+
+![fading_shadow](fadingshadow.png "fadingshadow.png")
 
 #### a) What can you see
 
@@ -102,6 +102,8 @@ The reception fades earlier (around a distance of 100) than the log-distance but
 
 ### 3. Nakagami
 
+
+![fading](fading.png "fading.png")
 
 The reception start fading earlier than the log-normal (around 80). Among the Nakagami models, we can observe that when we increase the value of the parameters, the curves starts decreasing later and have a wider range of good signal reception. The Nakagami-mix is the worse since it start decreasing early and fast compared to the others.
 
