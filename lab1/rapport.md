@@ -10,7 +10,7 @@
 
 ### Load 1
 
-![Load_1](http://www.williamclot.com/share/load_1.png "load_1.png")
+![Load_1](img/load_1.png "load_1.png")
 
   For a fixed number of 3 nodes in the network at a fixed distance, we will study the evolution of the goodput (the number of useful bits per unit of time forwarded by the network to a certain destination) depending on the data rate.
   The graph shows that the goodput is linear for a data rate from 0.1 to 0.8 Mbps, then slows down from 0.8 to 0.9 Mbps and starts to saturate from 0.9 Mbps.
@@ -22,7 +22,7 @@
 
 ### Load 2
 
-![Load_2](http://www.williamclot.com/share/load_2.png "load_2.png")
+![Load_2](img/load_2.png "load_2.png")
 
 
   This scenario is similar to the first one except that we increased the value of the saturation point of the channel (from 2Mbps to 54 Mbps). In both cases, we stoped the data rate value at half the saturation point. In this scenario, the goodput starts slowing down when we reach a data rate value of 10 Mbps and slows down even more after 20 Mbps. Comparatively to the data rate saturation point, the goodput of the second scenario start slowing down faster but doesn't start saturating as fast as for the first scenario.
@@ -82,7 +82,7 @@ Thanks to the RTS/CTS handshake, nodes verify that it is ok to send multiple pac
 ##  Part3 : distance and packet size impact
 
 
-![Load_3](http://www.williamclot.com/share/load_3.png "load_3.png")
+![Load_3](img/load_3.png "load_3.png")
 
 
 ### 1) Packet size of 2000 and bit rate of 0.5 Mbps
